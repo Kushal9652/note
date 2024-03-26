@@ -1,0 +1,80 @@
+scanning the target is the most important phase of information gathering it could be active or passive
+active requires permission which means it directly interact with host to gain information....where as 
+passive crawls the web for the information that is required:
+
+1>ip gathering we can use tools like ping,nslookup,
+ -->if we want to gather information about an ip 
+ we use whois tool which gives full detailed information
+
+2>technology fingerprintting on target using what web stealthy scan:
+--->what web has a 1700 active plugins to identify the stack of technologies running behind
+the target.
+
+tip:to find the ip of ur router a verysimple cmd netstat -nr
+
+#>nmap is the network mapper used to test the networks to find the open ports and 
+then scans the services and further we should find the on what vulnerable programm its running
+
+###########################################TCP SYN SCAN ########################################################################################
+*tcp syn scan is the fastest scan it never estabilishes a full tcp connection and then fastest as it can scan 1000's of ports per second
+only sends the first way of three way hand shake only sending syn................if the target sends the syn ack back then the target port is listening 
+active and open
+
+sudo nmap -sS 142.250.192.110
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-03-25 09:37 IST
+Nmap scan report for bom12s17-in-f14.1e100.net (142.250.192.110)
+Host is up (0.13s latency).
+Not shown: 998 filtered tcp ports (no-response)
+PORT    STATE SERVICE
+80/tcp  open  http
+443/tcp open  https
+
+Nmap done: 1 IP address (1 host up) scanned in 17.06 seconds
+
+#########################################TCP CONNECT SCAN########################################################################################
+*it establishes full connection no need of sudo privileges
+nmap -sT 142.250.192.110
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-03-25 09:47 IST
+Nmap scan report for bom12s17-in-f14.1e100.net (142.250.192.110)
+Host is up (0.043s latency).
+Not shown: 998 filtered tcp ports (no-response)
+PORT    STATE SERVICE
+80/tcp  open  http
+443/tcp open  https
+
+Nmap done: 1 IP address (1 host up) scanned in 4.75 seconds
+#########################################UDP SCAN #################################################################################################
+
+sudo nmap -sU <ip>
+
+########################################FINDING OS RUNNING BEHIND THE PORTS########################################################################
+$ sudo nmap -0 192.168.1.1
+
+
+########################################version of software running on a open port#################################################################
+
+$ sudo nmap -0 192.168.1.1 -sV  --version-intensity(0 to 9) 9 
+
+-A argument specifies the agression of the nmap scana by default scans the os and openports and version detection and enables nmap script scanning.
+(dont use this on un permitted targets)
+
+########################################filtering port range and output############################################################################
+bypassing firewalls and ips and ids and also we use --script
+even though we performed scans we can conceal our identity for geting idenfied as -f option should be used for not being identified
+$ sudo nmap -F(faster first 100 ports) <ip>
+
+firewall bypass:
+filtered ports are the uncertain ports that cant be detiremined whether they are closed or open due to the presence of the firewalls...hence packet loss occurs thet firewall drops the packets
+
+use -f to bypass(its sends the tiny ip fragmented packets it ) it splits the tcp headers into number of packets so that ids and firewalls cant detect the icmp packets. it splits each of the packet into 8 bytes
+
+-f -f =16 
+   splits pckates into 16 bytes...
+
+  * if u want to increase fragemnt size --mtu 
+##################################hiding ips using decoys############
+
+sudo nmap -D RND:ip
+ 
+
+ making this decoy scans can lets the server know its not only scanned by us.but also by decoys ids can report multiple ips are scanned the network not only the individual ip...they cant find which one is real

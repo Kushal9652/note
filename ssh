@@ -1,0 +1,58 @@
+SSH OR SECURE SHELL:
+we have a linux machine(server) if we want to use the linux machine remotely then ssh can be used
+we can access the cmd prompt of the server....we can acess all the resources of the resrver through its cmd prompt
+it doesnt provide gui.
+ssh traffic goes in encrypted format through the network ....our  trafic is secure where as in ftp of telnet our traffic goes in the plain text so easy to attacker to steal.
+ssh runs on port 22...many distros are availble like open ssh etc....
+by default ssh comes with linux
+___________________________________________________________________________________________________________
+to use the ssh we need to configure configuration file. 
+
+$nano /etc/ssh/sshd_config
+
+#PermitRootLogin ->remove hash and write yes as:PermitRootLogin yes
+
+ctrl+o ->Save
+ctrl+x->exit
+
+___________________________________________________________________________________________________________
+
+To start ssh:
+
+$service ssh start
+
+to verify the whether the ssh listening or not verify using netstat 
+
+$netstat -antp
+
+--if u can see tcp6 <ip>:22 then ssh started listening
+
+_____________________________________________________________________________________________________________
+
+if u want the ssh to be started when ever ur kali machine is active then use the command 
+
+$ update-rc.d ssh default
+
+
+______________________________________________________________________________________________________________
+
+we can connect  to the linux machine through ssh from the windows power shell
+
+D:\>ssh -h ( to view the help manual)
+
+if we have a public key or rsa key then we use -i option\
+
+if we are performing dynamic port fowarding we use -D
+
+remote port forwarding -R
+
+localport forwarding -L
+
+D:\>ssh username@<ip>  
+
+             propt for password:pass
+        
+
+              -->we have been sucesfully logged into the ssh 
+
+   
