@@ -1,0 +1,26 @@
+ HOW TO CONNECT THE TERMINAL TO GITHUB USING SSH
+
+$ssh-keygen -t rsa -b 4096 -C "kushalkumar1617@gmail.com"
+
+
+--->this command is used for generating the ssh key it generates the sshkey and sshkey.pub
+sshkey is private key and then sshkey.pub is the public key
+
+
+*open the git hub and open the ssh key feature add the ssh public key there
+
+* eval "$(ssh-agent -s)"
+
+    this command is used to create the ssh agent and now we should add the path of the pvt key
+
+    ssh-add /path/to/sshprivatekey
+
+
+$ssh -T git@github.com
+
+
+$git remote set-url origin git@github.com:Kushal9652/note.git
+
+$git add .
+
+$git push origin main
