@@ -3,7 +3,7 @@
 $ssh-keygen -t rsa -b 4096 -C "kushalkumar1617@gmail.com"
 
 
---->this command is used for generating the ssh key it generates the sshkey and sshkey.pub
+--->this command is used for evaluating whether the agent is alive and then generating the ssh key it generates the sshkey and sshkey.pub
 sshkey is private key and then sshkey.pub is the public key
 
 

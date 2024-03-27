@@ -1,0 +1,46 @@
+VULNERABILITY ANALYSIS WITH NMAP SCRIPTS:
+
+*we managed to gather the information about the target in the scanning phase and now we are going to use that information to analyse the first vulnerability in the target machine.
+
+*we are going to use tools like nmap,nessus,etc
+
+*nmap scripting:
+
+  ->upto now we used nmap for scanning now we are going to learn how we can use namp for vulnerability analysis....in some cases we can even perform exploitation with the help of different scripts
+  
+  -> what are nmap script?
+    nmap scripts are commenly used to detect several service vulns .It is also used to collect even more information about databases and other network services.
+
+   ->what scripts exists:
+     /usr/share/nmap/scripts (or) 
+     nmap --script-help all
+
+   ->To run a specific script on a host
+
+    nmap -p 5222 --script=xmpp-info 192.168.1.100
+   
+   ->how to verify whether a script i specified exists on the script list?
+
+   nmap --script-help all | grep -i <script-name>
+
+
+   eg:nmap --script-help all | grep -i http-enum
+
+
+    check the nmap webpage for much useful information:
+
+
+     *detecting any creds about target:
+
+   $sudo nmap --script auth ip -sS
+    
+
+   NMAP MALWARE SEARCH:
+   *This search is used to detect whether the target is infected by any walware 
+
+   $sudo nmap --script malware ip -sS
+
+
+   BANNER SCAN:
+   
+   $sudo nmap --script banner ip -sS
