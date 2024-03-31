@@ -1,0 +1,112 @@
+bash scripts allow to exwcute the commands form the file.
+bash is mostly used for automating scripts.
+
+!.sh is used to identify the script as bash script
+
+2.every script should start as #!/bin/bash/
+
+because every time the command will be executed after being intrepted by the bash which is located in bin 
+
+3.echo"the text is going to be printed on term
+
+for commenting purpose we use #
+
+
+ VARIABLES:
+
+  variables are like storage containers which store the values
+
+   2 types of variables:
+
+    1> system defined
+    2> user defined 
+
+    SYSTEM DEFINED VARIABLE : are those varibles its created defined and maintained by os
+
+    USER DEFINED VARIABLE: are those variables created and defined by user.
+
+    to use the variables in our program we must use $ before the variable name.
+
+
+
+    eg:
+    #!/bin/bash
+    #system defined variable 
+    echo $BASH  #bash is system defined variable
+    echo $pwd
+
+    #userdefined variables
+
+    name ="kushal"
+    echo $name
+
+
+    READ USER INPUT:
+
+    #!/bin/bash
+    #read user input
+    echo"enter your name"
+    echo"enter age"
+    read name
+    read age
+    echo "entered name :$name"
+    echo "entered name :$age"
+
+    ARGUMENTS:
+
+    #!/bin/bash
+    #print total arguments and their values
+
+    echo "total arguments:" $#  --total arguments count can be known
+    echo "total arguments:" $@  --argument values stored in $@
+
+    ###command line arguments can be acessed as 
+    echo "first->" $1
+    echo "first->" $2
+
+    to run this file for example file name example.sh
+
+    chmod 777 example.sh
+
+    ./example.sh kushal 52
+
+    -- 2 cmd line arguments are passed they are kushal and 52
+
+   IF ELSE :
+
+   SYNTAX: if [ condition ]
+           then
+           echo"condition true"
+           else
+           echo "condition failed"
+           fi
+
+    *fi means ending
+
+    simple bash script:
+    #!/bin/bash
+    echo"enter a value"
+    read a
+    echo"enter b value"
+    read b
+
+    if [ $a == $b]   
+    then 
+    echo" a is equal to b"
+    else
+    echo" a in not equal to b"
+    fi
+
+how to find the greater than or equal number
+
+if[ $a -eq $b ]
+
+FILE OPERATORS IN BASH:
+
+-f file exit
+-d dir exit or not
+-s file not empty
+-d dir is directory exists not a file
+-w file is writable file
+-r file is read only file
+-x file is file executable.
