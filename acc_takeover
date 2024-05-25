@@ -1,0 +1,35 @@
+ACCOUNT TAKE OVER BUG:
+
+1.RESPONSE MANIPULATION:
+           1.create a normal user account and try to login and do intercept and copy the response
+           2.now simply enter the victim email with wrong password to login
+           3.now do intercept and analyze the response that says wrong password
+           4.replace it with the response of the first login....
+            -->if its vullnerable u can acess victim account if not u may get the acess to the hackeraccount only because of any kinds of tokens etc...
+ 2.STATUS CODE MAINUPLATION:
+           1. in some instances u can only see some few details in the sucess and failed response if so 
+           2.u can try to manipulate the status code 
+           3.if the login panel has a password reset feature u can abuse it simply by status manipulation if possible
+ 3.TRICKING THE PASSWORD RESET:
+          1.the hacker and victim should both have the accounts in the same application.
+          2.try to login with the first account and analyse everything try to manipulate
+          3.manipulate in the verify otp part try changing email if possible check source code for 
+          further details
+          
+4.ADDING ATTACKER EMAIL IN THE EMAIL FIELD:
+
+        {
+        email=kushalkumar1617@gmail.com
+        }  # before
+
+        {  
+         email=["hacker@gmail.com",
+         "victima@gmail.com"
+         ]
+        } #after
+
+
+5.decrypting the hash:
+1.analyse the hash 
+2.determine which detail is been hashed 
+3.after determining the hash change to attacker detail of hash 
